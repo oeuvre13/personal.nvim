@@ -6,6 +6,7 @@ return {
         open_mapping = [[<C-t>]],
         hide_numbers = true,
         name = 'pwsh',
-        direction = 'vertical'
+        direction = 'vertical',
+        close_on_exit = true
     }
 }
