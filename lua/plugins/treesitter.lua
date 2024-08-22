@@ -8,7 +8,7 @@ return {
             ensure_installed = {'cpp', 'c', 'lua', 'javascript', 'go', 'python'},
             sync_install = false,
             highlight = {enable = true},
-            indent = {endable = true}
+            indent = {enable = true}
         },
 
         config = function()
