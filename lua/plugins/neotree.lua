@@ -22,10 +22,15 @@ return {
                         '.git'
                     }
                 }
+            },
+            source_selector = {
+                winbar = true,
+                statusline = true
             }
-       })
-        vim.keymap.set('n', '<leader>nf', ':Neotree action=focus source=filesystem position=float<CR>')
-        vim.keymap.set('n', '<leader>nb', ':Neotree action=focus source=buffers position=float<CR>')
-        vim.keymap.set('n', '<leader>ng', ':Neotree action=focus source=git_status position=float<CR>')
+        })
+        vim.keymap.set('n', '<leader>nf', ':Neotree filesystem focus<CR>')
+        vim.keymap.set('n', '<leader>nb', ':Neotree buffers focus<CR>')
+        vim.keymap.set('n', '<leader>ng', ':Neotree git_status focus<CR>')
+        vim.cmd(':Neotree<CR>')
     end
 }

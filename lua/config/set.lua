@@ -23,3 +23,6 @@ vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 
 vim.g.mapleader = ' '
+vim.g.have_nerd_font = true
+
+vim.opt.cursorline = true
