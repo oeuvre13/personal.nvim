@@ -6,5 +6,5 @@
 ## Install
 nvim powershell
 ```
-git clone https://github.com/andrc1613/nvim-config.git $env:LOCALAPPDATA\nvim\
+git clone https://github.com/andrc1613/personal.nvim.git $env:LOCALAPPDATA\nvim\
 ```
