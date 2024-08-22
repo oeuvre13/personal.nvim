@@ -26,5 +26,6 @@ return {
        })
         vim.keymap.set('n', '<leader>nf', ':Neotree action=focus source=filesystem position=float<CR>')
         vim.keymap.set('n', '<leader>nb', ':Neotree action=focus source=buffers position=float<CR>')
+        vim.keymap.set('n', '<leader>ng', ':Neotree action=focus source=git_status position=float<CR>')
     end
 }
