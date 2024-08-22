@@ -1,11 +1,9 @@
 return {
     'xiyaowong/transparent.nvim',
     lazy = false,
-
+    opts = {},
     config = function()
-        require('transparent').clear_prefix('Neotree')
-        -- require('transparent').clear_prefix('telescope')
-        -- require('transparent').clear_prefix('colorscheme')
+        require('transparent').clear_prefix('telescope')
         vim.cmd('TransparentEnable')
     end
 }

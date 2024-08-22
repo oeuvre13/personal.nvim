@@ -1,20 +1,16 @@
 return {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-    lazy = false,
-
+    'rose-pine/neovim',
+    name = 'rose-pine',
     opts = {
-        transparent = true,
+        variant = 'main',
+        dark_variant = 'main',
         styles = {
-            sidebars = 'transparent',
-            floats = 'transparent'
-        }
+            italic = false,
+        },
     },
-    
+
     config = function()
-        vim.cmd.colorscheme 'catppuccin'
-        -- vim.api.nvim_set_hl(0, 'Normal', {bg = 'none'})
-        vim.api.nvim_set_hl(0, 'NormalFloat', {bg = 'none'})
+        require('rose-pine').setup(opts)
+        vim.cmd.colorscheme 'rose-pine'
     end
 }
