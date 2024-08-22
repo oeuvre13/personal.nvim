@@ -26,3 +26,10 @@ vim.g.mapleader = ' '
 vim.g.have_nerd_font = true
 
 vim.opt.cursorline = true
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
