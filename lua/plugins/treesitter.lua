@@ -6,14 +6,10 @@ return {
 
         opts = {
             ensure_installed = {'cpp', 'c', 'lua', 'javascript', 'go', 'python'},
-            sync_install = false,
+            auto_install = true,
             highlight = {enable = true},
-            indent = {enable = true}
-        },
-
-        config = function()
-            require('nvim-treesitter').setup(opts)
-        end
+            indent = {enable = true},
+        }
     },
     {
         'nvim-treesitter/playground'
