@@ -1,91 +1,20 @@
--- [[ OPTIONS ]]
--- Set mapleader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Toggle nerd font
-vim.g.have_nerd_font = true
-
--- Line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
--- Tabs
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-
--- Indenting
-vim.opt.smartindent = true
-
--- Undo
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = "C:/undodir/"
-vim.opt.undofile = true
-
--- Searching
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
--- Scroll-off
-vim.opt.scrolloff = 15
-
--- Update time
-vim.opt.updatetime = 250
-
--- Show cursor line
-vim.opt.cursorline = true
-
--- Highlight text when yanking
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
--- Default Shell
-vim.opt.shell = 'pwsh'
-vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-vim.opt.shellquote = ""
-vim.opt.shellxquote = ""
-
--- [[ KEYMAPPING ]]
--- Netrw
--- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
-
--- Moving highlighted lines vertically
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-
--- Vertical navigation
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
-
--- Window navigation (Ctrl + HJKL)
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', {desc = 'Move focus to the left window'})
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', {desc = 'Move focus to the lower window'})
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', {desc = 'Move focus to the upper window'})
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', {desc = 'Move focus to the right window'})
-
--- Yank to system clipboard
-vim.keymap.set('n', '<leader>y', "\"+y")
-vim.keymap.set('v', '<leader>y', "\"+y")
+require('keymaps')
+require('options')
+require('misc')
 
 -- [[ LAZY ]]
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
     local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-    local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+    local out = vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        '--branch=stable',
+        lazyrepo,
+        lazypath,
+    }
     if vim.v.shell_error ~= 0 then
         error('Error cloning lazy.nvim:\n' .. out)
     end
