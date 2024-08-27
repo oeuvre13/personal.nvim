@@ -1,7 +1,5 @@
 # Personal Neovim Configuration
 
-## Requirements:
-- 
 ## Plugins
 ### Essentials
 - syntax highlighting: https://github.com/nvim-treesitter/nvim-treesitter
@@ -29,3 +27,5 @@ nvim powershell
 ```
 git clone https://github.com/andrc1613/personal.nvim.git $env:LOCALAPPDATA\nvim\
 ```
+## Post-Install
+run ```:checkhealth``` for additional dependency requirements
